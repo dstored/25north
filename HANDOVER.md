@@ -7,12 +7,20 @@
   (free, no account). The "Talk to us about a mandate" button is a direct mailto to the same address.
 - **Cost so far: £0.**
 
-## The one thing you must do in the morning
+## Already in your inbox
 
-**Open dannysdubai@gmail.com and click the FormSubmit activation link** (sender: FormSubmit,
-subject mentions activation). I triggered it with a test submission. Until you click it,
-FormSubmit holds lead delivery; after you click, every form submission lands in your inbox
-with subject "25 North lead: <name>". Check spam if it isn't in the inbox.
+Two emails are waiting at dannysdubai@gmail.com (check spam too):
+
+1. **A Google Drive share: "25 North — captured leads (7 Nov 2026)"** — the first captured
+   leads (both labelled test submissions from the live-site pipeline check), plus how leads
+   flow from here.
+2. **The FormSubmit activation email** (sender: FormSubmit). This is the one thing to act on:
+   click **Activate Form**. After that, every form submission lands in your inbox
+   automatically as "25 North lead: <name>".
+
+Until you click it, the site still loses nothing: a visitor who submits gets their own mail
+app opened, pre-filled to dannysdubai@gmail.com, framed as step two of joining. Their email
+delivers the lead directly.
 
 Optional but recommended afterwards: FormSubmit's activation page shows a random alias
 endpoint (looks like `formsubmit.co/ajax/abc123...`). Swap it into `FORM_ENDPOINT` in
