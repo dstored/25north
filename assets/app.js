@@ -157,10 +157,13 @@
           status.classList.add("ok");
         })
         .catch(function () {
+          // Relay unavailable (e.g. not yet activated): hand the visitor a pre-filled
+          // email instead. Their own mail client sends the lead directly, no relay.
           var body = "Name: " + name + "\nEmail: " + email + "\nRole: " + role + "\nLinkedIn: " + (linkedin || "not given") + "\nTimeline: " + timeline;
           var href = "mailto:" + LEAD_EMAIL + "?subject=" + encodeURIComponent("25 North membership request: " + name) + "&body=" + encodeURIComponent(body);
-          status.innerHTML = "That didn’t send. <a href=\"" + href + "\">Click here to send it by email instead</a>.";
-          status.classList.add("err");
+          status.innerHTML = "One more step: your email app is opening with your request pre-filled. Press send and you’re in. Nothing opened? <a href=\"" + href + "\">Tap here</a>.";
+          status.classList.add("ok");
+          window.location.href = href;
         })
         .finally(function () { btn.disabled = false; });
     });
