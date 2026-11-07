@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dstored.github.io/25north/sitemap.xml

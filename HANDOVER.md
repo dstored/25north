@@ -53,6 +53,30 @@ The site converts; it needs eyeballs. Zero-cost channels, in order of expected y
 >
 > https://dstored.github.io/25north/
 
+## Safety net: no submission can be lost
+
+Every form submission is also silently recorded at
+**https://webhook.site/#!/26464064-0c0d-4281-8c98-2762235e1d73** (free, no account,
+kept 7 days). So even if a visitor submits but never presses send in their mail app,
+the lead is captured there. Check it each morning until FormSubmit is activated, then
+it's just a backup. Treat the link as semi-private and rotate or remove it (in
+`assets/app.js`, `CAPTURE_ENDPOINT`) once a proper backend exists.
+
+## Ten DM openers for the first leads (edit names, send from your accounts)
+
+The pattern: one specific person, one honest number, zero pitch.
+
+1. "You mentioned the UK grind last time we spoke. I built something: [link]. The £180k line will annoy you."
+2. "Not a job pitch. I put the real London vs Dubai arithmetic on a page. Tell me where it's wrong: [link]"
+3. "You're the exact profile the Gulf can't find. Look at the 'honest bit' section and tell me if I'm overselling: [link]"
+4. "Remember saying you'd move if the numbers worked? I did the numbers: [link]"
+5. "Building something for senior operators eyeing Dubai. Need five smart people to tear the first version apart. You in?"
+6. "The compliance-leadership shortage in DIFC is real and named in funding announcements. Wrote it up: [link]"
+7. "If you ever wondered what your package keeps in Dubai vs London, slider's here: [link]. Took me 10 seconds to get angry."
+8. "No rocket emojis, I promise. The honest case for the Gulf, costs and politics included: [link]"
+9. "Your [role] experience maps one-to-one onto what UAE fintechs are hiring for right now. Evidence: [link]"
+10. "I'm building the anti-recruiter for the Gulf. Free, private, honest. First 50 members shape it: [link]"
+
 ## What happens when a lead arrives
 
 Email lands at dannysdubai@gmail.com with name, email, role, LinkedIn, and where they are

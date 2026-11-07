@@ -8,6 +8,10 @@
 
   var LEAD_EMAIL = "dannysdubai@gmail.com";
   var FORM_ENDPOINT = "https://formsubmit.co/ajax/" + LEAD_EMAIL;
+  // Silent capture: every submission is also recorded here (free, 7-day retention),
+  // so a lead survives even if the email relay or the visitor's mail app fails.
+  // Inbox: https://webhook.site/#!/26464064-0c0d-4281-8c98-2762235e1d73
+  var CAPTURE_ENDPOINT = "https://webhook.site/26464064-0c0d-4281-8c98-2762235e1d73";
   var GBP_AED = 4.6;
 
   document.documentElement.classList.add("js");
@@ -125,6 +129,13 @@
         status.classList.add("err");
         return;
       }
+
+      // Record the lead first, fire-and-forget, before any relay can fail.
+      try {
+        var record = JSON.stringify({ name: name, email: email, role: role, linkedin: linkedin || "not given", timeline: timeline, at: new Date().toISOString(), source: "25north-landing" });
+        if (navigator.sendBeacon) navigator.sendBeacon(CAPTURE_ENDPOINT, record);
+        else fetch(CAPTURE_ENDPOINT, { method: "POST", mode: "no-cors", headers: { "Content-Type": "text/plain" }, body: record });
+      } catch (e) {}
 
       var payload = {
         _subject: "25 North lead: " + name + " (" + timeline + ")",
