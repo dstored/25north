@@ -149,7 +149,9 @@
       })
         .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { return { ok: r.ok, body: j }; }); })
         .then(function (res) {
-          if (!res.ok) throw new Error("relay error");
+          // FormSubmit answers HTTP 200 with success:"false" while unactivated or on
+          // soft errors; only a true success means the lead was actually relayed.
+          if (!res.ok || String(res.body.success) === "false") throw new Error("relay not delivering");
           form.reset();
           status.textContent = "Done. You’re in the queue; we’ll be in touch within a few days. No spam, no CV blasts.";
           status.classList.add("ok");
